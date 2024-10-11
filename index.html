@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kérdezz-felelek játék</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .link {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kérdezz-felelek játék</h1>
+
+    <div class="question">
+        <p><strong>1. Melyik ország válogatottjában játszik Lionel Messi?</strong></p>
+        <input type="text" id="q1" placeholder="Válasz">
+    </div>
+
+    <div class="question">
+        <p><strong>2. Melyik klubcsapatban kezdte profi karrierjét Messi?</strong></p>
+        <input type="text" id="q2" placeholder="Válasz">
+    </div>
+
+    <div class="question">
+        <p><strong>3. Hányszor nyerte el Messi az Aranylabdát 2021-ig?</strong></p>
+        <input type="number" id="q3" placeholder="Válasz">
+    </div>
+
+    <button onclick="checkAnswers()">Ellenőrzés</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="link" id="link">
+        <a href="https://www.youtube.com/watch?v=U2EuO9Ik6GA" target="_blank"> Kattints ide a meglepetéshez! Gratulálunk! Majd nézd olvasd be a doboz alján szereplő QR-kódot! </a>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            var q1 = document.getElementById("q1").value.toLowerCase();
+            var q2 = document.getElementById("q2").value.toLowerCase();
+            var q3 = parseInt(document.getElementById("q3").value);
+
+            if (q1 === "argentína" && q2 === "barcelona" && q3 === 7) {
+                document.getElementById("result").innerText = "Gratulálunk, minden válasz helyes!";
+                document.getElementById("link").style.display = "block";
+            } else {
+                document.getElementById("result").innerText = "Sajnos van hibás válasz. Próbáld újra!";
+                document.getElementById("link").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
